@@ -20,7 +20,7 @@ do
     if [ $? -eq 0 ] # id devuelve info del user, si user no existe $? es 0
     then # Si el usuario existe
         if [ -d "/home/$user/.ssh" ]; then # Compruebo si el directorio .ssh existe
-            perms=$(stat -c "%a" "/home/$user/.ssh") # Obtengo los permisos del directorio .ssh
+            perms=$(stat -c "%a" "/home/${user}/.ssh") # Obtengo los permisos del directorio .ssh
             if [ "$perms" != "700" ]; then # Verifico si los permisos son correctos (700)
                 echo "Error: Permisos incorrectos para el directorio .ssh de $user. Permisos actuales: $perms"
             fi
